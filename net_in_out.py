@@ -9,9 +9,6 @@ def traffic():
         for line in data:
             if interface in line:
                 stats.append([float(line.split()[1]),float(line.split()[9])])
-            else:
-                print('interface name:{} error.'.format(interface))
-                sys.exit(1)
 
 
 # Real-time monitoring of interface 
@@ -19,7 +16,7 @@ if len(sys.argv) > 1:
     interface = sys.argv[1]
 else:
     interface = 'eth0'
-print('Interface:{}'.format(interface))
+print('Interface:{}\tDate:{}'.format(interface,time.asctime()))
 while True:
     stats = []
     traffic()
